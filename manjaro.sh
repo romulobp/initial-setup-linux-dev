@@ -26,6 +26,9 @@ sudo pacman -S remmina
 #Installing copyq
 sudo pacman -S copyq
 
+#Installing yarn
+sudo pacman -S yarn
+
 #Installing nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
 echo "export NVM_DIR="$HOME/.nvm"" >> ~/.bashrc
