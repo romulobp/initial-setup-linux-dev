@@ -9,6 +9,8 @@ sudo systemctl start docker
 sudo systemctl enable docker
 sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+sudo groupadd docker
+sudo usermod -aG docker $USER
 echo "Enter your Git name: "
 read name
 echo "Enter your Git email: "
@@ -40,6 +42,16 @@ sudo apt install notepadqq libreoffice -y
 
 # Installing Remmina
 sudo apt install remmina -y
+
+# Installing copyq
+sudo apt-get install -y copyq
+
+# Installing nvm
+curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
+echo "export NVM_DIR=\"$HOME/.nvm\"" >> ~/.bashrc
+echo "[ -s \"\$NVM_DIR/nvm.sh\" ] && \. \"\$NVM_DIR/nvm.sh\"" >> ~/.bashrc
+echo "[ -s \"\$NVM_DIR/bash_completion\" ] && \. \"\$NVM_DIR/bash_completion\"" >> ~/.bashrc
+source ~/.bashrc
 
 # Installing Oh-My-Zsh and Powerlevel10k theme
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
