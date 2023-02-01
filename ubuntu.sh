@@ -46,6 +46,11 @@ sudo apt install remmina -y
 # Installing copyq
 sudo apt-get install -y copyq
 
+# Installing yarn
+curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
+echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
+sudo apt update && sudo apt install yarn
+
 # Installing nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
 echo "export NVM_DIR=\"$HOME/.nvm\"" >> ~/.bashrc
