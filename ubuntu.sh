@@ -1,16 +1,20 @@
-#!/bin/bash
+!/bin/bash
 
-# Updating system packages
+# Installing necessary packages
 sudo apt update && sudo apt upgrade -y
-
-# Installing Git, Docker, and Docker Compose
-sudo apt install git docker.io -y
+sudo apt install curl npm git docker.io -y
 sudo systemctl start docker
 sudo systemctl enable docker
+
+# Installing Docker Compose
 sudo curl -L "https://github.com/docker/compose/releases/download/1.27.4/docker-compose-$(uname -s)-$(uname -m)" -o /usr/local/bin/docker-compose
 sudo chmod +x /usr/local/bin/docker-compose
+
+# Adding user to Docker group
 sudo groupadd docker
 sudo usermod -aG docker $USER
+
+# Setting Git configuration
 echo "Enter your Git name: "
 read name
 echo "Enter your Git email: "
@@ -30,15 +34,13 @@ sudo apt install -f -y
 sudo snap install postman
 
 # Installing Microsoft Teams and DBeaver
-wget -O teams.deb "https://packages.microsoft.com/repos/ms-teams/pool/main/t/teams/teams_1.4.00.16851_amd64.deb"
-sudo dpkg -i teams.deb
-sudo apt install -f -y
-sudo apt install dbeaver-ce -y
+sudo snap install teams-for-linux
+sudo snap install dbeaver-ce
 
-# Installing Notepad++ and LibreOffice
+# Installing Notepad++
 sudo add-apt-repository ppa:notepadqq-team/notepadqq -y
 sudo apt update
-sudo apt install notepadqq libreoffice -y
+sudo apt install notepadqq
 
 # Installing Remmina
 sudo apt install remmina -y
@@ -47,9 +49,7 @@ sudo apt install remmina -y
 sudo apt-get install -y copyq
 
 # Installing yarn
-curl -sS https://dl.yarnpkg.com/debian/pubkey.gpg | sudo apt-key add -
-echo "deb https://dl.yarnpkg.com/debian/ stable main" | sudo tee /etc/apt/sources.list.d/yarn.list
-sudo apt update && sudo apt install yarn
+sudo npm install --global yarn
 
 # Installing nvm
 curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.0/install.sh | bash
@@ -59,10 +59,6 @@ echo "[ -s \"\$NVM_DIR/bash_completion\" ] && \. \"\$NVM_DIR/bash_completion\"" 
 source ~/.bashrc
 
 # Installing Oh-My-Zsh and Powerlevel10k theme
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh)"
-git clone https://github.com/romkatv/powerlevel10k.git ${ZSH_CUSTOM:-~/.oh-my-zsh/custom}/themes/powerlevel10k
-sed -i 's/ZSH_THEME="robbyrussell"/ZSH_THEME="powerlevel10k/powerlevel10k"/g' ~/.zshrc
-echo "POWERLEVEL9K_MODE='nerdfont-complete'" >> ~/.zshrc
-
-#Reboot
-sudo reboot
+sudo apt install -y zsh
+sudo chsh -s /usr/bin/zsh
+sh -c "$(curl -fsSL https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master
