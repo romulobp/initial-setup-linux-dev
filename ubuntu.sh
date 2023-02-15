@@ -4,7 +4,6 @@
 sudo apt update && sudo apt upgrade -y
 sudo apt install curl npm git docker.io zsh -y
 
-echo -e 'use-login-keyring=false' >> ~/.pam_environment
 gsettings set org.gnome.desktop.session idle-delay 0
 
 #Starting and enabling Docker
@@ -21,6 +20,7 @@ sudo usermod -aG docker $USER
 
 #Installing Visual Studio Code
 sudo snap install code --classic
+wget -qO- https://raw.githubusercontent.com/cra0zy/code-nautilus/master/install.sh | bash
 
 #Installing Discord
 wget -O discord.deb "https://discordapp.com/api/download?platform=linux&format=deb"
