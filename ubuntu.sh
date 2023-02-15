@@ -5,6 +5,7 @@ sudo apt update && sudo apt upgrade -y
 sudo apt install curl npm git docker.io zsh -y
 
 echo -e 'use-login-keyring=false' >> ~/.pam_environment
+gsettings set org.gnome.desktop.session idle-delay 0
 
 #Starting and enabling Docker
 sudo systemctl start docker
