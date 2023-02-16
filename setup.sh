@@ -19,7 +19,11 @@ sudo groupadd docker
 sudo usermod -aG docker $USER
 
 #Installing Visual Studio Code
-sudo snap install code --classic
+wget -O /tmp/vscode.deb https://go.microsoft.com/fwlink/?LinkID=760868
+sudo dpkg -i /tmp/vscode.deb
+sudo apt install -f
+rm /tmp/vscode.deb
+
 wget -qO- https://raw.githubusercontent.com/cra0zy/code-nautilus/master/install.sh | bash
 
 #Installing Discord
