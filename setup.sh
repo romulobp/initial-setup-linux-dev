@@ -7,8 +7,6 @@ sudo apt install curl npm git docker.io zsh -y
 gsettings set org.gnome.desktop.session idle-delay 0
 
 #Remove keyring
-sudo apt-get remove gnome-keyring
-sudo apt-get remove --auto-remove gnome-keyring
 
 #Starting and enabling Docker
 sudo systemctl start docker
